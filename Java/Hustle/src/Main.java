@@ -4,7 +4,7 @@
 public class Main{
     public static void main(String[] args){
         double c, r, a, v;
-        r=10;
+        r=20;
         c = 2*Math.PI*r;
         System.out.printf("%.1f\n",c);
         a = Math.PI * (Math.pow(r, 2));
