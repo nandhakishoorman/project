@@ -1,15 +1,15 @@
-// c = 2(pi)(r)
-// a = pi(r * r)
-// v = 4/3(pi * r * r * r)
-public class Main{
-    public static void main(String[] args){
-        double c, r, a, v;
-        r=20;
-        c = 2*Math.PI*r;
-        System.out.printf("%.1f\n",c);
-        a = Math.PI * (Math.pow(r, 2));
-        System.out.printf("%.1f\n",a);
-        v = 4/3.0 * (Math.PI * Math.pow(r, 3));
-        System.out.printf("%.1f\n",v);
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        double principal = 1000;
+        double interest_rate = 0.06;  // 6% as decimal
+        double no_of_time_compounded = 1; // Compounded once per year
+        double time = 5;  // 5 years
+
+        double amount = principal * Math.pow((1 + interest_rate / no_of_time_compounded),
+                no_of_time_compounded * time);
+
+        System.out.println("Final Amount after " + time + " years = " + amount);
     }
 }
