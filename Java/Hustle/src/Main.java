@@ -1,13 +1,13 @@
+// Tertiary operator
+
 import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        String email;
-        int len;
-        String the_name;
-        email = "nandhakishoorman@gmail.com";
-        len = email.length();
-        the_name = email.substring(0, 16);
-        System.out.println(the_name);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter ur marks:- ");
+        int score = scanner.nextInt();
+        String pass_or_fail = (score >= 60) ? "PASS" : "FAIL";
+        System.out.println(pass_or_fail);
     }
 }
