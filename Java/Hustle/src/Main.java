@@ -1,19 +1,20 @@
-// (0°C × 9/5) + 32 = 32°F
-//(32°F − 32) × 5/9 = 0°C
-
 import java.util.Scanner;
 
-public class Main{
+public class Main {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        String current_type;
-        double temp;
-        double convertion;
-        System.out.println("From 'c' to 'f' or 'f' to 'c', what the current type: ");
-        current_type = scanner.nextLine();
-        System.out.println("Enter the temp: ");
-        temp = scanner.nextDouble();
-        convertion = (current_type.equalsIgnoreCase("C")) ? (temp* 9.0/5.0) + 32 : (temp - 32) * 5.0/9.0;
-        System.out.println(convertion);
+        System.out.print("Enter the day: ");
+        String day = scanner.nextLine();
+
+        switch(day){
+            case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ->
+                System.out.println("Bruh");
+            case "Saturday", "Sunday" ->
+                System.out.println("Enjoy! Bruh!");
+            default ->{
+                System.out.println("That's not in my boss head when he was coding!");
+                System.out.println("Jesus is the way, the truth and the life.");
+            }
+        }
     }
 }
