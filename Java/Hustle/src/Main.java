@@ -1,59 +1,34 @@
 import java.util.Scanner;
+import java.util.Random;
 
-// Banking project
-public class Main {
-    static boolean running = true;
-    static int choice;
-    static double balance;
-    static double deposit_ammount;
-    static double withdraw_ammount;
+public class Main{
+    static int no_of_dice_to_roll;
     static Scanner scanner = new Scanner(System.in);
+    static Random random = new Random();
+    static int total;
+    static int random_dice_no;
 
-    public static void main(String[] args) {
-
-        while (running) {
-            System.out.println("********************");
-            System.out.println("Welcome to the bank!");
-            System.out.println("********************");
-            System.out.println("1. Show Balance\n2. Deposit\n3. Withdraw\n4. Exit");
-            System.out.println("********************");
-
-            System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
-            switch (choice) {
-                case 1 -> System.out.println(balance_printer());
-                case 2 -> deposit();
-                case 3 -> withdraw();
-                case 4 -> exit_method();
-                default -> System.out.println("Bruh that's not fair");
-            }
+    public static void main(String[] args){
+        System.out.println("Welcome to Dice rolling project!");
+        dice_roller();
+    }
+    static void no_of_dice_to_roll(){
+        System.out.print("Enter the no of dice to roll: ");
+        no_of_dice_to_roll = scanner.nextInt();
+    }
+    static int no_of_dice_roll(){
+        random_dice_no = random.nextInt(1, 7);
+        return random_dice_no;
+    }
+    static void dice_roller(){
+        no_of_dice_to_roll();
+        int x;
+        for (int i = 0; i<no_of_dice_to_roll; i++){
+            x = no_of_dice_roll();
+            System.out.println(x);
+            total += x;
         }
-    }
+        System.out.println("The total of the dice rolled, "+total);
 
-    static void exit_method() {
-        running = false;
-    }
-
-    static double balance_printer() {
-        return balance;
-    }
-
-    static void deposit() {
-        System.out.print("Enter the ammount to deposit: ");
-        deposit_ammount = scanner.nextDouble();
-        balance += deposit_ammount;
-        System.out.printf("Successfully Deposited $%.2f\n", deposit_ammount);
-    }
-
-    static void withdraw() {
-        System.out.print("Enter the ammount to withdraw: ");
-        withdraw_ammount = scanner.nextDouble();
-        if (withdraw_ammount <= balance) {
-            balance -= withdraw_ammount;
-            System.out.printf("The $%.2f is withdrawn!\n", withdraw_ammount);
-        }
-        else{
-            System.out.printf("Your account contains: $%.2f.\nYou cannot withdraw: $%.2f\n", balance, withdraw_ammount);
-        }
     }
 }
